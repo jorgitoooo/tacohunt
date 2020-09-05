@@ -13,7 +13,7 @@ import "./Hero.css";
 
 function Hero({ children, ...props }) {
   return (
-    <Jumbotron fluid>
+    <Jumbotron fluid {...props}>
       <Container>
         {children}
         <Container>
