@@ -8,6 +8,9 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Hero from "../../components/Hero";
 
+// Image
+import tacoPlaceHolder from "./taco-md.png";
+
 // CSS
 import "./LandingPage.css";
 
@@ -26,9 +29,12 @@ function LandingPage(props) {
   }, [establishments.length]);
 
   return (
-    <>
+    <div className="bg-light">
       <Hero>
-        <h1 className="display-4 font-weight-bold text-light">
+        <h1
+          className="display-4 font-weight-bold text-light"
+          style={{ marginTop: "3rem" }}
+        >
           <strong>TacoHunt.</strong>
         </h1>
         <p className="font-weight-light text-light lead">
@@ -51,11 +57,12 @@ function LandingPage(props) {
           <Col xs={12} sm={4} className="my-2 mh-100">
             <Card className="w-100 h-100 shadow-sm">
               <Card.Img
-                width={200}
-                height={200}
+                className="w-100 my-5 text-center"
+                as="div"
                 variant="top"
-                src="https://image.flaticon.com/icons/svg/184/184546.svg"
-              />
+              >
+                <img src={tacoPlaceHolder} alt="TacoHunt placeholder" />
+              </Card.Img>
               <Card.Body>
                 <Card.Title>Restaurants</Card.Title>
                 <Card.Text>
@@ -73,11 +80,12 @@ function LandingPage(props) {
           <Col xs={12} sm={4} className="my-2 mh-100">
             <Card className="w-100 h-100 shadow-sm">
               <Card.Img
-                width={200}
-                height={200}
+                className="w-100 my-5 text-center"
+                as="div"
                 variant="top"
-                src="https://image.flaticon.com/icons/svg/184/184546.svg"
-              />
+              >
+                <img src={tacoPlaceHolder} alt="TacoHunt placeholder" />
+              </Card.Img>
               <Card.Body>
                 <Card.Title>Trucks</Card.Title>
                 <Card.Text>
@@ -94,11 +102,12 @@ function LandingPage(props) {
           <Col xs={12} sm={4} className="my-2 mh-100">
             <Card className="w-100 h-100 shadow-sm">
               <Card.Img
-                width={200}
-                height={200}
+                className="w-100 my-5 text-center"
+                as="div"
                 variant="top"
-                src="https://image.flaticon.com/icons/svg/184/184546.svg"
-              />
+              >
+                <img src={tacoPlaceHolder} alt="TacoHunt placeholder" />
+              </Card.Img>
               <Card.Body>
                 <Card.Title>Stands</Card.Title>
                 <Card.Text>
@@ -114,7 +123,13 @@ function LandingPage(props) {
           </Col>
         </Row>
       </Container>
-    </>
+      <footer className="text-center text-muted">
+        Developed by{" "}
+        <a className="text-dark" href="https://jorgegarcia.co">
+          <b>Jorge L. Garcia</b>
+        </a>
+      </footer>
+    </div>
   );
 }
 
