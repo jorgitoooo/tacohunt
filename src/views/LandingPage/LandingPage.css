@@ -2,3 +2,9 @@ mark {
   background-color: #17a2b8 !important;
   color: white;
 }
+
+.btn-outline-light:hover {
+  color: #30a7bb !important;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+}
