@@ -79,6 +79,13 @@ describe("SignUpForm test functionality", () => {
     wrapper = mount(<SignUpForm />);
   });
 
+  afterEach(() => {
+    // It's best practice to clear spied function after every test run.
+    // https://stackoverflow.com/questions/43245040/
+    //   using-jest-to-spy-on-method-call-in-componentdidmount/43284406#43284406
+    formSubmitSpy.mockClear();
+  })
+
   it("contains correct email input values", () => {
     // Email has not been inputted yet
     expect(
