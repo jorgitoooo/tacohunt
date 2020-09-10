@@ -74,6 +74,7 @@ describe("SignUpForm test functionality", () => {
   let wrapper;
   let formSubmitSpy;
   beforeEach(() => {
+    SignUpForm.prototype.onFormSubmit = jest.fn()
     formSubmitSpy = jest.spyOn(SignUpForm.prototype, "onFormSubmit");
     wrapper = mount(<SignUpForm />);
   });
@@ -140,28 +141,7 @@ describe("SignUpForm test functionality", () => {
   });
 
   it("submits form", () => {
-    // const submitSpy = jest
-    //   .spyOn(SignUpForm.prototype, "onFormSubmit")
-    //   .mockImplementation((e) => {
-    //     e.preventDefault();
-    //     console.log("in mock");
-    //   });
-    // SignUpForm.prototype.onFormSubmit = jest.fn().mockImplementation((e) => {
-    //   e.preventDefault();
-    //   console.log("in mock");
-    // });
-    // console.log(wrapper);
-    // wrapper.instance().onFormSubmit = jest.fn();
-    // .mockImplementation((e) => {
-    //   e.preventDefault();
-    //   console.log("in mock");
-    // });
-    // wrapper.update();
-    // console.log(wrapper.debug());
-
-    wrapper.find("[data-testid='signup-button']").first().simulate("click");
-    // console.log(wrapper.find("[data-testid='signup-button']").first());
-    // expect(wrapper.instance().onFormSubmit).toHaveBeenCalled();
+    wrapper.find("form").prop("onSubmit")({ preventDefault: () => undefined });
     expect(formSubmitSpy).toHaveBeenCalled();
   });
 });
