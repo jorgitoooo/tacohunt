@@ -7,9 +7,13 @@ import Form from "react-bootstrap/Form";
 import FormContainer from "../containers/FormContainer";
 
 // Form error component
-function ConditionalFormError({ error, name }) {
+function ConditionalFormError({ error, name, ...props }) {
   if (error && error[name]) {
-    return <p className="my-1 text-danger font-weight-bold">{error[name]}</p>;
+    return (
+      <p {...props} className="my-1 text-danger font-weight-bold">
+        {error[name]}
+      </p>
+    );
   } else {
     return null;
   }
@@ -92,6 +96,7 @@ class SignUpForm extends React.Component {
         <Form onSubmit={this.onFormSubmit}>
           <Form.Group>
             <Form.Control
+              data-testid="signup-email"
               type="email"
               name="email"
               placeholder="Enter Email"
@@ -103,6 +108,7 @@ class SignUpForm extends React.Component {
           </Form.Group>
           <Form.Group>
             <Form.Control
+              data-testid="signup-password"
               type="password"
               name="password"
               placeholder="Enter Password"
@@ -115,6 +121,7 @@ class SignUpForm extends React.Component {
           </Form.Group>
           <Form.Group>
             <Form.Control
+              data-testid="signup-passwordConfirm"
               type="password"
               name="passwordConfirm"
               placeholder="Confirm Password"
@@ -128,11 +135,17 @@ class SignUpForm extends React.Component {
               error={this.state.error}
             />
           </Form.Group>
-          <Button block type="submit" variant="info">
+          <Button
+            data-testid="signup-button"
+            block
+            type="submit"
+            variant="info"
+          >
             Sign Up
           </Button>
           <hr />
           <Button
+            data-testid="signup-login-link"
             block
             variant="link"
             className="font-weight-bold text-info"
